@@ -5,8 +5,8 @@
 
 var settings = {
   clean: false,
-  scripts: true,
-  polyfills: true,
+  scripts: false,
+  polyfills: false,
   styles: true,
   images: true,
   copy: false,
