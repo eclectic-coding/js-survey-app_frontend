@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.hero {
+  background-image: url("../../dist/images/bg-hero-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero__nav {
+  display: flex;
+  //width: 90vw;
+  //margin: 1em 6em;
+  justify-content: space-between;
+}
+
+.hero__container {
+  //display: flex;
+  //margin: 2em auto;
+  //width: 90vw;
+}

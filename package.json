@@ -1,0 +1,44 @@
+{
+  "name": "survey-app_frontend",
+  "version": "1.0.0",
+  "description": "Survey App Landing Page",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "github.com/eclectic-coding/js-rails_survey-app.git"
+  },
+  "author": {
+    "name": "Chuck Smith",
+    "url": "https://eclecticsaddlebag.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 0.25%"
+  ],
+  "devDependencies": {
+    "autoprefixer": "9.6.1",
+    "browser-sync": "2.26.7",
+    "cssnano": "4.1.10",
+    "del": "3.0.0",
+    "gulp": "4.0.2",
+    "gulp-cache": "^1.1.3",
+    "gulp-concat": "2.6.1",
+    "gulp-flatmap": "1.0.2",
+    "gulp-header": "2.0.5",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-jshint": "2.1.0",
+    "gulp-optimize-js": "1.1.0",
+    "gulp-postcss": "8.0.0",
+    "gulp-rename": "1.4.0",
+    "gulp-sass": "4.0.2",
+    "gulp-terser": "1.1.7",
+    "jshint": "2.9.6",
+    "jshint-stylish": "2.2.1",
+    "lazypipe": "1.0.1",
+    "node-sass": "4.13.0"
+  }
+}
