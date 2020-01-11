@@ -12,9 +12,7 @@
     "url": "https://eclecticsaddlebag.com"
   },
   "license": "MIT",
-  "dependencies": {
-    "normalize.css": "^8.0.1"
-  },
+  "dependencies": {},
   "browserslist": [
     "last 2 versions",
     "> 0.25%"
