@@ -1,15 +1,15 @@
 /**
  * Basic typography style for copy text
  */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Muli&display=swap');
+
 body {
   color: $text-color;
-  font: normal 113% / 1.4 $text-font-stack;
+  font: normal 113% / 1.5 $text-font-stack;
+  font-family: 'Muli', sans-serif;
 }
 
-//.container {
-//  //margin-top: 50px;
-//  display: grid;
-//  grid-template-columns: 1fr 1fr;
-//  //grid-gap: 50px;
-//  //padding-bottom: 50px;
-//}
+.title {
+  margin: 0.25em;
+}

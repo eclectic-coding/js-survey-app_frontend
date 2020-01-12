@@ -10,7 +10,8 @@ $font-size-dec : 4px;
   #{$heading} {
     font-size : ($font-size-upper / $font-size-base) + em;
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    margin: (($font-size-upper / $font-size-base) + em) / 4;
   }
   $font-size-upper : $font-size-upper - $font-size-dec;
 }
