@@ -27,23 +27,13 @@ a {
   }
 }
 
-header {
-  text-align: left;
-  width: 100%;
-  margin-top: 2rem;
-
-  .logo {
-    width: 43%;
-  }
+main {
+  flex: 1;
+  padding: 20px;
 }
 
-main {
-  //margin: 3.8em 1em 4.5rem 1em;
-
-  img {
-    width: 100%;
-    height: auto;
-    //margin-bottom: 3.8rem;
-  }
+aside {
+  padding: 20px;
+  background-color: #936;
 }
 
