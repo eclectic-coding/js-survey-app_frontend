@@ -1,11 +1,13 @@
 .card {
   padding: 0.5em;
+  margin: 2em 0;
   border: 1px solid #ececec;
 }
 
 .card__content {
-  margin: 0.25em;
+  margin: 0.5em;
 }
+
 .card__title {
   text-transform: uppercase;
 
@@ -17,13 +19,13 @@
   }
 }
 
-.card-summary {
+.card__summary {
   margin-bottom: 1em;
-  padding: 0.25em 5% 3% 5%;
 }
 
 .card__btn {
-  margin: 1em 0;
+  //margin: 1em 0;
+  margin-left: 1em;
 }
 
 .card__effect {
