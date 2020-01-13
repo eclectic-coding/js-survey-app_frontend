@@ -1,5 +1,7 @@
 # Project Title
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d2055bbf-80af-4abc-926e-e80f3f926486/deploy-status)](https://app.netlify.com/sites/js-survey-app/deploys)
+
 One Paragraph of project description goes here
 
 ## Getting Started
@@ -68,7 +70,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
@@ -78,7 +80,7 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
 
 ## Acknowledgments
 
