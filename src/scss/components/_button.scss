@@ -6,15 +6,4 @@
   border: none;
   border-radius: 100px 100px 100px 100px;
   box-shadow: 3px 3px 40px -10px black;
-
-  &__navbutton {
-    background-color: #fff;
-    font-weight: 600;
-  }
-
-  &__actionbutton {
-    background-color: $brand-color;
-    color: #fff;
-    font-weight: 600;
-  }
 }

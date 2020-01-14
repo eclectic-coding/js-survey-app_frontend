@@ -29,12 +29,12 @@ a {
 
 main {
   flex: 1;
-  padding: 20px;
+  padding: 1em;
 }
 
 aside {
-  padding: 20px;
-  background-color: #936;
+  padding: 1em;
+  //background-color: #936;
 }
 
 .container {
@@ -44,7 +44,7 @@ aside {
 
   @include md{
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 17em 1fr;
     grid-template-rows: auto 1fr;
   }
 }

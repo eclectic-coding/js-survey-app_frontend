@@ -22,8 +22,8 @@ Commercial survey tools include distribution functionality that mass emails surv
 
 ### Defining a Survey
 
--   [ ] Survey Coordinator can define a survey containing 1-4 multiple choice questions.
--   [ ] Survey Coordinator can define 1-5 mutually exclusive selections to each question.
+-   [ ] Survey Coordinator can define a survey containing 3 multiple choice questions.
+-   [ ] Survey Coordinator can define 3 mutually exclusive selections to each question.
 -   [ ] Survey Coordinator can enter a title for the survey.
 -   [ ] Survey Coordinator can click a 'Cancel' button to return to the home page without saving the survey.
 -   [ ] Survey Coordinator can click a 'Save' button save a survey.

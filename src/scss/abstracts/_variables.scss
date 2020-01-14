@@ -12,7 +12,8 @@ $text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue',
 $text-color: hsl(0, 0%, 6%) !default;
 
 /// Main brand color
-$brand-color: hsl(322, 100%, 66%);
+$brand-color: rgba(41, 128, 185,1.0);
+$brand-color-hover: rgba(20, 64, 92,1.0);
 
 $light-grey: rgb(237, 237, 237) !default;
 $mid-grey: rgb(153, 153, 153) !default;
