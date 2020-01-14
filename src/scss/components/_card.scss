@@ -1,4 +1,4 @@
-.card {
+.survey-card {
   padding: 0.5em;
   margin: 2em 0;
   border: 1px solid #ececec;
@@ -27,6 +27,10 @@
   //margin: 1em 0;
   margin-left: 1em;
 }
+
+.btn__success {
+    background-color: #669900;
+  }
 
 .card__effect {
   transition: transform .5s;
