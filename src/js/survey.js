@@ -14,6 +14,9 @@ class Survey {
           .removeChild(document.getElementById(this.id))
       })
     // TODO - Delete works! but doesn't refresh to opening index list
+    window.setTimeout(() => {
+      window.location.href = "/";
+    }, 1000);
   }
 
   // Index List of Surveys
@@ -74,7 +77,9 @@ class Survey {
       document.querySelector('survey-card')
       // TODO add submit to write data for survey response
       if (e.target.className.includes('submit')) this.renderSurveyList(e)
-      if (e.target.className.includes('delete')) this.deleteSurvey(e)
+      if (e.target.className.includes('delete')) {
+        this.deleteSurvey(e)
+      }
     })
   }
 }

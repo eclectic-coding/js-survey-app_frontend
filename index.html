@@ -14,6 +14,7 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link rel="stylesheet" href="dist/css/main.css">
 
   <meta name="theme-color" content="#fafafa">
@@ -25,25 +26,26 @@
   <form id="survey-form">
     <div class="input-field">
       <label for="title">Title</label>
-      <input type="text" name="title" id="title" class="input-field"
+      <input type="text" name="title" class="input-field" id="title"
              placeholder="Survey title...">
     </div>
 
     <div class="input-field">
-      <label for="question">Question 1</label>
-      <input type="text" name="question"
+      <label for="question1">Question 1</label>
+      <input type="text" name="question" id="question1"
              placeholder="Your first question...">
     </div>
 
     <div class="input-field">
-      <label for="question">Question 2</label>
-      <input type="text" name="question2"
+      <label for="question2">Question 2</label>
+      <input type="text" name="question2" id="question2"
              placeholder="Your second question...">
     </div>
 
     <div class="input-field">
-      <label for="question">Question 3</label>
-      <input type="text" name="question3" placeholder="Your third question...">
+      <label for="question3">Question 3</label>
+      <input type="text" name="question3"
+             id="question3" placeholder="Your third question...">
     </div>
 
     <input type="submit" value="Create Survey">
@@ -57,13 +59,23 @@
 </main>
 
 <footer>
-<!--  <ul class="footer">-->
-<!--    <li><p>👋</p></li>-->
-<!--    <li><a href="https://twitter.com/julesforrest">Twitter</a></li>-->
-<!--    <li><a href="https://codepen.io/julesforrest">Codepen</a></li>-->
-<!--    <li><a href="mailto:julesforrest@gmail.com">Email</a></li>-->
-<!--    <li><a href="https://github.com/julesforrest">Github</a></li>-->
-<!--  </ul>-->
+  <section class="social">
+    <ul class="social-set">
+      <li><a class="sociali twitter" href="#" target="_blank"
+             aria-label="Twitter">
+        <i class="fab fa-twitter-square" title="Twitter"></i></a></li>
+      <li><a class="sociali" href="#" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github-square fa-fw" title="GitHub"></i></a></li>
+      <li><a class="sociali" href="#" target="_blank" aria-label="Medium">
+        <i class="fab fa-medium fa-fw" title="Medium"></i></a></li>
+      <li><a class="sociali" href="#" target="_blank" aria-label="Devto">
+        <i class="fab fa-dev fa-fw" title="Medium"></i></a></li>
+      <li><a class="sociali linkedin" href="#" target="_blank"
+             aria-label="LinkedIn">
+        <i class="fab fa-linkedin fa-fw" title="LinkedIn"></i></a></li>
+    </ul>
+  </section>
+  <p>Font Awesome social icons with flexbox CSS</p>
 </footer>
 <script src="src/js/survey.js"></script>
 <script src="src/js/question.js"></script>
