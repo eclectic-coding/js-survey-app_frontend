@@ -8,4 +8,9 @@ header {
   //font-size: 1.4em;
   background-color: $brand-color;
   color: white;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
