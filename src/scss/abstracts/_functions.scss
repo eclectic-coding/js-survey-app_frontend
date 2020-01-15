@@ -11,7 +11,7 @@ $font-size-dec : 4px;
     font-size : ($font-size-upper / $font-size-base) + em;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
-    margin: (($font-size-upper / $font-size-base) + em) / 4;
+    margin: (($font-size-upper / $font-size-base) / 4) + em;
   }
   $font-size-upper : $font-size-upper - $font-size-dec;
 }
