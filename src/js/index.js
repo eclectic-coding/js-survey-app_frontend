@@ -29,11 +29,11 @@ function addSurvey(e) {
   }
 
   fetch('http://localhost:3000/surveys/', configObj)
-    .then(response => response.json())
+    .then(resp => resp.json())
     .then(survey => {
-      new Survey(survey.id, survey.title, survey.question1, survey.question2, survey.question3)
+      const { id, title, question1, question2, question3 } = survey
+      new Survey(id, title, question1, question2, question3)
       document.getElementById('survey-form').reset()
     })
 }
-
 
