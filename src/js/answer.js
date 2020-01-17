@@ -4,7 +4,9 @@ class Answer {
     this.responded = responded
   }
 
-
+  clearMessage() {
+    console.log('Hello there')
+  }
 
 }
 

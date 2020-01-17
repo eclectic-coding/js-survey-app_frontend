@@ -28,17 +28,14 @@ class Survey {
         this.postAnswer(this.id, responded)
       }
     }
-    // TODO disable buttons in survey card
+    // Disable buttons
     document.querySelector('.submit').setAttribute('disabled', 'disabled')
     document.querySelector('.delete').setAttribute('disabled', 'disabled')
+    // Render Results card
     this.renderResults()
-
-    // this.getResults(this.id)
-    //   let myData = null
-    //   .then(data => myData => data)
-    // console.log(myData.title)
   }
 
+  // Post answers to DB
   postAnswer(surveys_id, responded) {
     let data = {
       surveys_id,
@@ -58,25 +55,23 @@ class Survey {
       })
   }
 
-  closeResults() {
-    console.log('We are done!')
-    document.getElementById('survey-container').removeChild(document.getElementById(this.id))
-    document.getElementById('survey-container').removeChild(document.getElementById(`results-${this.id}`))
-    fetchSurveys()
+  getResults() {
+    const fetchPromise = fetch('http://localhost:3000/answers')
+    const resultsReport1 = document.getElementById('q1')
+    const resultsReport2 = document.getElementById('q2')
+    const resultsReport3 = document.getElementById('q3')
+    fetchPromise.then(resp => {
+      return resp.json()
+    }).then(questionResults => {
+      const myResults1 = questionResults.filter(a => a.surveys_id && a.responded === 'question1').length
+      resultsReport1.innerHTML += myResults1
+      const myResults2 = questionResults.filter(a => a.surveys_id && a.responded === 'question2').length
+      resultsReport2.innerHTML += myResults2
+      const myResults3 = questionResults.filter(a => a.surveys_id && a.responded === 'question3').length
+      resultsReport3.innerHTML += myResults3
+    })
   }
 
-  async getResults() {
-    let response = await fetch('http://localhost:3000/answers')
-    let data = await response.json()
-    return data
-    // let firstQuestion = (dataArr.filter(a => a.surveys_id === id && a.responded === 'question1')).length
-    // let secondQuestion = (dataArr.filter(a => a.surveys_id === id && a.responded === 'question2')).length
-    // let thirdQuestion = (dataArr.filter(a => a.surveys_id === id && a.responded === 'question3')).length
-    // return `Return: ${firstQuestion} ${secondQuestion} ${thirdQuestion}`
-    // return dataArr.filter(a => a.surveys_id === id && a.responded === 'question1').length
-  }
-
-  // Render surveys
   surveyListHTML() {
     return `
     <div class="card__content">
@@ -112,27 +107,33 @@ class Survey {
 
   resultsHTML() {
     return `
-    <div id="results">
-        <h4>Results:</h4>
-        <span>${ this.question1 }: <strong></strong></span><br>
-        <span>${ this.question2 }: <strong></strong></span><br>
-        <span>${ this.question3 }: <strong></strong></span><br><br>
+    <div id="results-card">
+      <h3>Results:</h3>
+        <ul class="report-list">
+          <li>${ this.question1 }: <span id="q1"></span></li>
+          <li>${ this.question2 }: <span id="q2"></span></li>
+          <li>${ this.question3 }: <span id="q3"></span></li>
+        </ul>
      </div>
      <button class="card__btn done">Done</button>
     `
   }
 
-  // Render Survey Results
   renderResults() {
     const resultsContainer = document.getElementById('survey-container')
     const resultsCard = document.createElement('div')
     resultsCard.classList.add('survey-card')
-    resultsCard.id = `results-${this.id}`
+    resultsCard.id = `results-${ this.id }`
     resultsCard.innerHTML += this.resultsHTML()
     resultsContainer.appendChild(resultsCard)
+    this.getResults()
     resultsCard.addEventListener('click', e => {
       document.querySelector('survey-card')
-      if (e.target.className.includes('done')) this.closeResults()
+      if (e.target.className.includes('done')) {
+        document.getElementById('survey-container').removeChild(document.getElementById(this.id))
+        document.getElementById('survey-container').removeChild(document.getElementById(`results-${ this.id }`))
+        fetchSurveys()
+      }
     })
   }
 

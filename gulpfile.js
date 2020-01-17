@@ -8,7 +8,7 @@ var settings = {
   scripts: false,
   polyfills: false,
   styles: true,
-  images: true,
+  images: false,
   copy: false,
   reload: true
 }
