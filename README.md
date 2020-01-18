@@ -1,6 +1,6 @@
 # Survey App
 
-![](/home/webrev/development/flatiron-projects/js-rails_survey-app/js-survey-app_frontend/survey-app.jpg)
+![](./survey-app.jpg)
 
 This was an exciting project pulling together all that I have been  learning at Flatiron School over the last four months. I have come to  appreciate the simplicity of setting up an API with Rails. This Fullstack Application uses [Ruby on Rails]() to build a backend API which serves a full CRUD interface to a HTML/CSS/JS frontend. The architecture is an example of a VanillaJS Single Page Application (SPA).  
 
