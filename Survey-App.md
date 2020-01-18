@@ -17,7 +17,7 @@ Commercial survey tools include distribution functionality that mass emails surv
 
 ### General
 
--   [ ] Survey Coordinators and Survey Respondents can define, conduct, and view surveys and survey results from a common website
+-   [x] Survey Coordinators and Survey Respondents can define, conduct, and view surveys and survey results from a common website
 -   [ ] Survey Coordinators can login to the app to access administrative functions, like defining a survey.
 
 ### Defining a Survey
@@ -32,11 +32,11 @@ Commercial survey tools include distribution functionality that mass emails surv
 
 -   [ ] Survey Coordinator can open a survey by selecting a survey from a list of previously defined surveys
 -   [ ] Survey Coordinators can close a survey by selecting it from a list of open surveys
--   [ ] Survey Respondent can complete a survey by selecting it from a list of open surveys
--   [ ] Survey Respondent can select responses to survey questions by clicking on a checkbox
--   [ ] Survey Respondents can see that a previously selected response will automatically be unchecked if a different response is clicked.
+-   [x] Survey Respondent can complete a survey by selecting it from a list of open surveys
+-   [x] Survey Respondent can select responses to survey questions by clicking on a checkbox
+-   [x] Survey Respondents can see that a previously selected response will automatically be unchecked if a different response is clicked.
 -   [ ] Survey Respondents can click a 'Cancel' button to return to the home page without submitting the survey.
--   [ ] Survey Respondents can click a 'Submit' button submit their responses to the survey.
+-   [x] Survey Respondents can click a 'Submit' button submit their responses to the survey.
 -   [ ] Survey Respondents can see an error message if 'Submit' is clicked, but not all questions have been responded to.
 
 ### Viewing Survey Results

@@ -1,68 +1,40 @@
-# Project Title
+# Survey App
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d2055bbf-80af-4abc-926e-e80f3f926486/deploy-status)](https://app.netlify.com/sites/js-survey-app/deploys)
+![](/home/webrev/development/flatiron-projects/js-rails_survey-app/js-survey-app_frontend/survey-app.jpg)
 
-One Paragraph of project description goes here
+This was an exciting project pulling together all that I have been  learning at Flatiron School over the last four months. I have come to  appreciate the simplicity of setting up an API with Rails. This Fullstack Application uses [Ruby on Rails]() to build a backend API which serves a full CRUD interface to a HTML/CSS/JS frontend. The architecture is an example of a VanillaJS Single Page Application (SPA).  
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
-What things you need to install the software and how to install them
+This repository is only the front-end for an overall Application. The [Ruby on Rails](https://rubyonrails.org/) API back-end can be found at [JS-Survey-app_backend](https://github.com/eclectic-coding/js-survey-app_backend).  You can find direction for setting up here and on that repository. 
 
-```
-Give examples
-```
+#### Backend Setup  
 
-### Installing
+You will need to set up the backend first. The repository is available [here](https://github.com/eclectic-coding/js-survey-app_backend). Clone to your computer:
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
+```shell
+https://github.com/eclectic-coding/js-survey-app_backend.git
 ```
 
-And repeat
+Rails is setup with the following requirements:
 
-```
-until finished
-```
+- Postgres DB
+- Rails-CORS is configured to allow connections from `http://localhost:8080`. If your development server uses a different port, you will need to configure in `config/initializer/cors.rb`.
 
-End with an example of getting some data out of the system or using it for a little demo
+Setup database `rails db:create`  then `rails db:migrate` 
 
-## Running the tests
+#### Frontend Setup 
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
+Clone to repository to your computer:  
+```shell
+https://github.com/eclectic-coding/js-survey-app_frontend.git
 ```
 
-### And coding style tests
+Change to the project directory and install the node packages either with `yarn` or `npm install`.
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+The frontend application uses Gulp to compile and minify CSS files and uses Browsersync to run a hot reloading development server. Run the command, within the project directory, `gulp watch`.
 
 ## Contributing
 
@@ -88,3 +60,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) f
 * Inspiration
 * etc
 
+
+```
+
+```
