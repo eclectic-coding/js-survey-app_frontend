@@ -1,6 +1,13 @@
 function fetchSurveys() {
   fetch('http://localhost:3000/surveys')
-    .then(res => res.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        return Promise.reject(response)
+      }
+    })
+    // .then(response => response.json())
     .then(surveys => {
       surveys.forEach(survey => {
         const { id, title, question1, question2, question3 } = survey
@@ -8,9 +15,11 @@ function fetchSurveys() {
       })
     })
 }
+
 fetchSurveys()
 
 document.querySelector('#survey-form').addEventListener('submit', addSurvey)
+
 function addSurvey(e) {
   e.preventDefault()
   let data = {
@@ -29,7 +38,13 @@ function addSurvey(e) {
   }
 
   fetch('http://localhost:3000/surveys/', configObj)
-    .then(resp => resp.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        return Promise.reject(response)
+      }
+    })
     .then(survey => {
       const { id, title, question1, question2, question3 } = survey
       new Survey(id, title, question1, question2, question3)

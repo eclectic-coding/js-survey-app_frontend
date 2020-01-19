@@ -48,8 +48,13 @@ class Survey {
       headers: {
         'Content-Type': 'application/json'
       }
+    }).then((response) => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        return Promise.reject(response)
+      }
     })
-      .then(resp => resp.json())
       .then(answer => {
         new Answer(answer.id, answer.responded)
       })
@@ -60,8 +65,12 @@ class Survey {
     const resultsReport1 = document.getElementById('q1')
     const resultsReport2 = document.getElementById('q2')
     const resultsReport3 = document.getElementById('q3')
-    fetchPromise.then(resp => {
-      return resp.json()
+    fetchPromise.then((response) => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        return Promise.reject(response)
+      }
     }).then(questionResults => {
       const myResults1 = questionResults.filter(a => a.surveys_id && a.responded === 'question1').length
       resultsReport1.innerHTML += myResults1
