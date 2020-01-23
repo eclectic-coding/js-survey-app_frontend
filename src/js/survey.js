@@ -6,6 +6,7 @@ class Survey {
     this.question2 = question2
     this.question3 = question3
     this.renderSurveyList()
+
   }
 
   // Survey methods
@@ -28,11 +29,8 @@ class Survey {
         this.postAnswer(this.id, responded)
       }
     }
-    // Disable buttons
     document.querySelector('.submit').setAttribute('disabled', 'disabled')
     document.querySelector('.delete').setAttribute('disabled', 'disabled')
-    // Render Results card
-    this.renderResults()
   }
 
   // Post answers to DB
@@ -57,22 +55,6 @@ class Survey {
     })
       .then(answer => {
         new Answer(answer.id, answer.responded)
-      })
-  }
-
-  getResults(myId) {
-    const fetchPromise = fetch(`http://localhost:3000/answers`)
-    const resultsReport1 = document.getElementById('q1')
-    const resultsReport2 = document.getElementById('q2')
-    const resultsReport3 = document.getElementById('q3')
-    fetchPromise.then(response => response.json())
-      .then(questionResults => {
-        const myResults1 = questionResults.filter(a => a.surveys_id === myId && a.responded === 'question1').length
-        resultsReport1.innerHTML += myResults1
-        const myResults2 = questionResults.filter(a => a.surveys_id === myId && a.responded === 'question2').length
-        resultsReport2.innerHTML += myResults2
-        const myResults3 = questionResults.filter(a => a.surveys_id === myId && a.responded === 'question3').length
-        resultsReport3.innerHTML += myResults3
       })
   }
 
@@ -107,38 +89,6 @@ class Survey {
     <button class="card__btn submit">Submit</button>
     <button class="card__btn delete">Delete</button>
     `
-  }
-
-  resultsHTML() {
-    return `
-    <div id="results-card">
-      <h3>Results:</h3>
-        <ul class="report-list">
-          <li>${this.question1}: <span id="q1"></span></li>
-          <li>${this.question2}: <span id="q2"></span></li>
-          <li>${this.question3}: <span id="q3"></span></li>
-        </ul>
-     </div>
-     <button class="card__btn done">Done</button>
-    `
-  }
-
-  renderResults() {
-    const resultsContainer = document.getElementById('survey-container')
-    const resultsCard = document.createElement('div')
-    resultsCard.classList.add('survey-card')
-    resultsCard.id = `results-${this.id}`
-    resultsCard.innerHTML += this.resultsHTML()
-    resultsContainer.appendChild(resultsCard)
-    this.getResults(this.id)
-    resultsCard.addEventListener('click', e => {
-      document.querySelector('survey-card')
-      if (e.target.className.includes('done')) {
-        document.getElementById('survey-container').removeChild(document.getElementById(this.id))
-        document.getElementById('survey-container').removeChild(document.getElementById(`results-${this.id}`))
-        fetchSurveys()
-      }
-    })
   }
 
   // Render Index Survey List
