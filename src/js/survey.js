@@ -166,7 +166,6 @@ class Survey {
     surveyContainer.appendChild(surveyCard)
     surveyCard.addEventListener('click', e => {
       document.querySelector('survey-card')
-      // TODO add submit to write data for survey response
       if (e.target.className.includes('submit')) this.submitSurvey()
       if (e.target.className.includes('delete')) this.deleteSurvey(e)
     })
