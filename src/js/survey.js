@@ -127,7 +127,7 @@ class Survey {
   }
 
   static sortingSurvey() {
-    allSurveys.sort((a, b) => (a.title > b.title) ? 1 : -1)
+    allSurveys.sort((a, b) => (a.title.toUpperCase() > b.title.toUpperCase()) ? 1 : -1)
     console.log(allSurveys)
     document.querySelectorAll('.survey-card').forEach(e => e.parentNode.removeChild(e))
     allSurveys.forEach(survey => {
@@ -135,7 +135,4 @@ class Survey {
       this.prototype.renderSurveyList(id, title, question1, question2, question3)
     })
   }
-
-
-
 }
