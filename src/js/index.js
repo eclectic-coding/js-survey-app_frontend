@@ -1,3 +1,5 @@
+const allSurveys = []
+
 function fetchSurveys() {
   fetch('http://localhost:3000/surveys')
     .then((response) => {
@@ -7,17 +9,17 @@ function fetchSurveys() {
         return Promise.reject(response)
       }
     })
-    // .then(response => response.json())
     .then(surveys => {
       surveys.forEach(survey => {
         const { id, title, question1, question2, question3 } = survey
-        new Survey(id, title, question1, question2, question3)
+        const arr = new Survey(id, title, question1, question2, question3)
+        allSurveys.push(arr)
       })
     })
 }
 
 fetchSurveys()
-
+document.getElementById('sort_button').addEventListener('click', () => Survey.sortingSurvey())
 document.querySelector('#survey-form').addEventListener('submit', addSurvey)
 
 function addSurvey(e) {

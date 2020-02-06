@@ -1,3 +1,5 @@
+let questionArr = []
+
 class Survey {
   constructor(id, title, question1, question2, question3) {
     this.id = id
@@ -5,8 +7,8 @@ class Survey {
     this.question1 = question1
     this.question2 = question2
     this.question3 = question3
-    this.renderSurveyList()
 
+    this.renderSurveyList(id, title, question1, question2, question3)
   }
 
   // Survey methods
@@ -54,29 +56,32 @@ class Survey {
       }
     })
       .then(answer => {
-        new Answer(answer.id, answer.responded)
+        const { id, responded } = answer
+        const arr = new Answer(id, responded)
+        questionArr.push(arr)
       })
   }
 
-  surveyListHTML() {
+  surveyListHTML(id, title) {
     return `
     <div class="card__content">
       <div class="card__title">
-        <h3>${this.title}</h3>
+        <h3 id=${id} class="survey-title">${title}</h3>
       </div>
     </div>
-    <button class="card__btn">Take Survey</button>
+    <button class="card__btn" id=${id}>Take Survey</button>
     `
   }
 
-  surveyHTML() {
-    let ask1 = this.question1 ? `<input type="radio" name="answer_question" value="question1"> ${this.question1}` : ''
-    let ask2 = this.question2 ? `<input type="radio" name="answer_question" value="question2"> ${this.question2}` : ''
-    let ask3 = this.question3 ? `<input type="radio" name="answer_question" value="question3"> ${this.question3}` : ''
+  surveyHTML(myId, title) {
+    let questionArr = allSurveys.find(a => a.id === myId)
+    let ask1 = questionArr.question1 ? `<input type="radio" name="answer_question" value="question1"> ${questionArr.question1}` : ''
+    let ask2 = questionArr.question2 ? `<input type="radio" name="answer_question" value="question2"> ${questionArr.question2}` : ''
+    let ask3 = questionArr.question3 ? `<input type="radio" name="answer_question" value="question3"> ${questionArr.question3}` : ''
     return `
     <div class="card__content">
       <div class="card__title">
-        <h3>${this.title}</h3>
+        <h3>${title}</h3>
       </div>
       <div class="card__summary">
         <form id="answer-form">
@@ -92,27 +97,27 @@ class Survey {
   }
 
   // Render Index Survey List
-  renderSurveyList() {
+  renderSurveyList(id, title, question1, question2, question3)  {
     const surveyContainer = document.getElementById('survey-container')
     const surveyCardList = document.createElement('div')
     surveyCardList.classList.add('survey-card')
     surveyCardList.classList.add('card__effect')
-    surveyCardList.id = this.id
-    surveyCardList.innerHTML += this.surveyListHTML()
+    surveyCardList.id = id
+    surveyCardList.innerHTML += this.surveyListHTML(id, title)
     surveyContainer.appendChild(surveyCardList)
     surveyCardList.addEventListener('click', e => {
-      if (e.target.className.includes('card__btn')) this.renderSurvey(e)
+      if (e.target.className.includes('card__btn')) this.renderSurvey(id, title, question1, question2, question3)
     })
   }
 
   // Show Survey
-  renderSurvey() {
+  renderSurvey(id, title) {
     document.querySelectorAll('.survey-card').forEach(e => e.parentNode.removeChild(e))
     const surveyContainer = document.getElementById('survey-container')
     const surveyCard = document.createElement('div')
     surveyCard.classList.add('survey-card')
-    surveyCard.id = this.id
-    surveyCard.innerHTML += this.surveyHTML()
+    surveyCard.id = id
+    surveyCard.innerHTML += this.surveyHTML(id, title)
     surveyContainer.appendChild(surveyCard)
     surveyCard.addEventListener('click', e => {
       document.querySelector('survey-card')
@@ -120,4 +125,17 @@ class Survey {
       if (e.target.className.includes('delete')) this.deleteSurvey(e)
     })
   }
+
+  static sortingSurvey() {
+    allSurveys.sort((a, b) => (a.title > b.title) ? 1 : -1)
+    console.log(allSurveys)
+    document.querySelectorAll('.survey-card').forEach(e => e.parentNode.removeChild(e))
+    allSurveys.forEach(survey => {
+      const { id, title, question1, question2, question3 } = survey
+      this.prototype.renderSurveyList(id, title, question1, question2, question3)
+    })
+  }
+
+
+
 }

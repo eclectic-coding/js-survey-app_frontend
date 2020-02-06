@@ -16,8 +16,7 @@ class Answer {
     resultsCard.addEventListener('click', e => {
       document.querySelector('survey-card')
       if (e.target.className.includes('done')) {
-        document.getElementById('survey-container').removeChild(document.getElementById(this.id))
-        document.getElementById('survey-container').removeChild(document.getElementById(`results-${this.id}`))
+        document.querySelectorAll('.survey-card').forEach(e => e.parentNode.removeChild(e))
         fetchSurveys()
       }
     })
@@ -29,15 +28,8 @@ class Answer {
     return data
   }
 
-  async getSurvey(surveyId) {
-    let response = await fetch(`http://localhost:3000/surveys/${surveyId}`)
-    let data = await response.json()
-    console.log(data)
-    return data
-  }
-
   resultsHTML() {
-      return `
+    return `
           <div id="results-card">
             <h3>Results:</h3>
               <dl class="inline-flex">
@@ -50,16 +42,15 @@ class Answer {
        `
   }
 
-  renderQuestions(id) {
-    this.getSurvey(id)
-      .then(survey => {
-        let q1 = survey.question1 + ': '
-        let q2 = survey.question2 + ': '
-        let q3 = survey.question3 + ': '
-        document.getElementById('q1').innerHTML = q1
-        document.getElementById('q2').innerHTML = q2
-        document.getElementById('q3').innerHTML = q3
-      })
+  renderQuestions() {
+    let surveyId = document.getElementsByClassName('survey-card')[0].id
+    let mySurveyResp = allSurveys.find(a => a.id === parseInt(surveyId))
+    let q1 = mySurveyResp.question1 + ': '
+    let q2 = mySurveyResp.question2 + ': '
+    let q3 = mySurveyResp.question3 + ': '
+    document.getElementById('q1').innerHTML = q1
+    document.getElementById('q2').innerHTML = q2
+    document.getElementById('q3').innerHTML = q3
   }
 
   getResults(myId) {
@@ -69,7 +60,6 @@ class Answer {
     this.getAnswers(myId)
       .then(questionResults => {
         let surveyLoc = questionResults.find(a => a.id === myId).surveys_id
-        console.log(surveyLoc)
         const myResults1 = questionResults.filter(a => a.surveys_id === surveyLoc && a.responded === 'question1').length
         resultsReport1.innerHTML += myResults1
         const myResults2 = questionResults.filter(a => a.surveys_id === surveyLoc && a.responded === 'question2').length
@@ -78,8 +68,6 @@ class Answer {
         resultsReport3.innerHTML += myResults3
         this.renderQuestions(surveyLoc)
       })
-
   }
-
 }
 
