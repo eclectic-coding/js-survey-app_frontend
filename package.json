@@ -20,7 +20,7 @@
   "devDependencies": {
     "autoprefixer": "10.2.5",
     "browser-sync": "2.26.14",
-    "cssnano": "5.0.1",
+    "cssnano": "5.0.2",
     "del": "6.0.0",
     "gulp": "4.0.2",
     "gulp-cache": "1.1.3",
